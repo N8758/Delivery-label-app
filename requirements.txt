@@ -1,0 +1,7 @@
+Flask==3.0.0
+reportlab==4.0.4
+python-barcode==0.14.0
+Pillow==10.2.0
+python-dotenv==1.0.1
+Flask-WTF==1.2.1
+fpdf==1.7.2

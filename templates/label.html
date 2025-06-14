@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Label Generated</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #fafafa; padding: 60px; display: flex; flex-direction: column; align-items: center; }
+    .card { background: white; padding: 32px; border-radius: 16px; box-shadow: 0 12px 24px rgba(0,0,0,0.08); max-width: 600px; width: 100%; text-align: center; }
+    h2 { color: #222; margin-bottom: 16px; }
+    p { font-size: 16px; color: #333; margin-bottom: 12px; }
+    a.download { margin-top: 20px; display: inline-block; background: #007bff; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    a.download:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Delivery Label Created!</h2>
+    <p>Your delivery label was successfully generated.</p>
+    <p>Delivery ID: <strong>{{ delivery_id }}</strong></p>
+    <a class="download" href="{{ file_url }}" download>Download PDF</a>
+  </div>
+</body>
+</html>

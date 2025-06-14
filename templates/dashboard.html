@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Delivery Label</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background: #eef2f5; padding: 40px; margin: 0; }
+    .container { max-width: 700px; margin: 0 auto; background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    h2 { text-align: center; color: #222; margin-bottom: 32px; }
+    form { display: grid; gap: 20px; }
+    input, textarea { padding: 14px 16px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+    button { background: #28a745; color: white; font-weight: 600; padding: 14px; border: none; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #218838; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Delivery Details</h2>
+    <form action="/generate" method="POST">
+      <input type="text" name="sender_name" placeholder="Sender Name" required>
+      <textarea name="sender_address" placeholder="Sender Address" rows="3" required></textarea>
+      <input type="text" name="receiver_name" placeholder="Receiver Name" required>
+      <textarea name="receiver_address" placeholder="Receiver Address" rows="3" required></textarea>
+      <button type="submit">Generate Label</button>
+    </form>
+  </div>
+</body>
+</html>
