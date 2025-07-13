@@ -2,22 +2,97 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login - Delivery Label</title>
+  <title>Login • Delivery Label</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #f5f7fa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-    .login-box { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); width: 360px; }
-    h2 { margin-bottom: 24px; color: #222; text-align: center; }
-    input { width: 100%; padding: 12px 16px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 8px; transition: border-color 0.3s; }
-    input:focus { border-color: #007bff; outline: none; }
-    button { width: 100%; background: #007bff; color: white; padding: 14px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; }
-    button:hover { background: #0056d2; }
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --bg: radial-gradient(circle at 25% 25%, #e0e7ff 0%, #fdf2f8 100%);
+      --glass: rgba(255,255,255,.65);
+      --radius: 1.25rem;
+      --shadow: 0 25px 45px rgba(0,0,0,.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .login-box {
+      backdrop-filter: blur(18px);
+      background: var(--glass);
+      padding: 3rem 3.5rem;
+      width: 100%;
+      max-width: 390px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      animation: pop .65s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 2rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: .75rem;
+      background: #f9fafb;
+      transition: border .25s, box-shadow .25s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgb(99 102 241 / .15);
+    }
+
+    button {
+      width: 100%;
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: .75rem;
+      cursor: pointer;
+      transition: background .25s, transform .1s;
+    }
+
+    button:hover { background: var(--primary-dark); }
+    button:active { transform: translateY(2px); }
+
+    @keyframes pop {
+      from { opacity: 0; transform: scale(.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 420px) {
+      .login-box { padding: 2.2rem 2rem; }
+      h2 { font-size: 1.45rem; }
+    }
   </style>
 </head>
 <body>
   <div class="login-box">
-    <h2>Login</h2>
+    <h2>Account Sign‑In</h2>
     <form action="/login" method="POST">
       <input type="text" name="username" placeholder="Username" required>
       <input type="password" name="password" placeholder="Password" required>
