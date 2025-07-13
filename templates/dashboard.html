@@ -2,21 +2,104 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard - Delivery Label</title>
+  <title>Dashboard • Delivery Label</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
-    body { background: #eef2f5; padding: 40px; margin: 0; }
-    .container { max-width: 700px; margin: 0 auto; background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    h2 { text-align: center; color: #222; margin-bottom: 32px; }
-    form { display: grid; gap: 20px; }
-    input, textarea { padding: 14px 16px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
-    button { background: #28a745; color: white; font-weight: 600; padding: 14px; border: none; border-radius: 8px; cursor: pointer; }
-    button:hover { background: #218838; }
+    :root {
+      --primary: #4f46e5;
+      --green: #22c55e;
+      --green-dark: #16a34a;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --radius: 1rem;
+      --shadow: 0 20px 40px rgba(0,0,0,.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+    body {
+      background: var(--bg);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 3rem;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+      animation: fadeIn .6s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: .75rem;
+      background: #f9fafb;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    button {
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--green);
+      border: none;
+      border-radius: .75rem;
+      cursor: pointer;
+      transition: background .25s;
+    }
+
+    button:hover { background: var(--green-dark); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.5rem; }
+      h2 { font-size: 1.35rem; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="topbar">
+    Logged in as: <strong>&nbsp;{{ session['user'] }}</strong>
+  </div>
+  <div class="card">
     <h2>Enter Delivery Details</h2>
     <form action="/generate" method="POST">
       <input type="text" name="sender_name" placeholder="Sender Name" required>
